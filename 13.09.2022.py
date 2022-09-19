@@ -1,22 +1,34 @@
 class Rekins():
-    def _init_(self,klients,veltijums,izmers,materials):
+    def __init__(self,klients,veltijums,izmers,materials):
         self.klients = klients
         self.veltijums = veltijums
-        self.izmers = izmers
-        self.materials = materials
+        self.izmers = izmers.split(",")
+        self.materials = float (materials)
 
+        sad_izm = self.izmers.split(",")
+        print(sad_izm)
+        self.aprekins()
     def izdrukat(self):
-        print("klients:",self.klients)
-        print("veltijums:",self.veltijums)
-        print("izmers:",self.izmers)
-        print("materials:",self.materials)
+        print("Klients:",self.klients)
+        print("Veltījums:",self.veltijums)
+        print("Izmērs:", self.izmers)
+        print("Materiāls:",self.materials)
+        print("Apmaksas summa:", self.aprekins())
 
-    def aprekins():
+    def aprekins(self):
         darba_samaksa = 15
-        PVN = 22
-        produkta_cena = (veltijums teksta garums simbolos) * 1.2 + (platums/100 * garums/100 * augstums/100)/ 3 * materials
-        PVN_summa = (produkta_cena + darba_samaksa)*PVN/100
+        PVN = 21
+        produkta_cena = (len(self.veltijums)) * 1.2 + (self.izmers[0]/100 * self.izmers[1]/100 * self.izmers[2]/100)/ 3 * self.materials
+        PVN_summa = (produkta_cena + darba_samaksa)*PVN/100 
         rekina_summa = (produkta_cena + darba_samaksa) + PVN_summa
+        return rekina_summa
 
-    
-pirmais = Rekins("Anna","Lai izdodas!",[20,20,20],3,5)
+klients = input("Ievadi vārdu: ")
+veltijums = input("Ievadi veltījumu: ")
+izmers = input("Ievadi izmēru (platums,garums,augstums): ")
+materials = input("Ievadi materiāla cenu EUR/m2: ")
+
+
+
+pirmais = Rekins(klients,veltijums,izmers,materials)
+pirmais.izdrukat()
