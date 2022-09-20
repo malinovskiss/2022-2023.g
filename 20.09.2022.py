@@ -1,3 +1,4 @@
+import csv
 import datetime
 
 
@@ -28,7 +29,10 @@ class Rekins():
         return rekina_summa
 
     def saglabat(self):
-        pass
+        with open("rekini.csv", "w",encoding="utf-8",newline="") as fails:
+            cswrite = csv.writer(fails)
+            cswrite.writerow(["Klienta vārds","Veltījums", "Izmēri","Materiāls","Laiks","Cena"])
+            cswrite.writerows([self.klients,self.veltijums, self.izmers,self.materials,self.laiks,])
 
 klients = input("Ievadi vārdu: ")
 veltijums = input("Ievadi veltījumu: ")
