@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import PySimpleGUI as sg (šeit rāda kļūdu)
 
 sg.theme('DarkAmber')
 
