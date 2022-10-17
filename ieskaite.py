@@ -16,16 +16,17 @@ import bibliotekas
 print(bibliotekas.a)
 
 for prece in bibliotekas.saraksts:
-    print(prece)
+ print(prece)
 
 import bibliotekas as bibl
 
 print(bibl.a)
 
 for prece in bibl.saraksts:
-    print(prece)
+ print(prece)
 
 print(bibl.summa(5,5))
 
 bmw = bibl.Auto()
 bmw.braukt()
+
