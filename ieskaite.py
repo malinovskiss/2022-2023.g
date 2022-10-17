@@ -1,5 +1,5 @@
 1.uzd
-https://replit.com/@malinovskiss/CloseUnsightlyParticle#main.py
+https://replit.com/@malinovskiss/CloseUnsightlyParticle#main(1.uzd).py
 
 2.uzd
 https://replit.com/@malinovskiss/CloseUnsightlyParticle#main(2.uzd).py
