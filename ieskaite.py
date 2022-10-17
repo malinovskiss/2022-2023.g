@@ -30,3 +30,14 @@ print(bibl.summa(5,5))
 bmw = bibl.Auto()
 bmw.braukt()
 
+a = 1
+
+saraksts = ['maize','piens','olas']
+
+def summa(a,b):
+ return a+b
+
+class Auto:
+  def braukt(self):
+   print("Auto brauc!")
+
