@@ -7,3 +7,4 @@ function sutitZinu(){
     console.log("sutitzinu() darbojas")
     chataZinas.innerHTML +u <br> + manaZina.value 
     fetch(API+'/sutit/'+vards.value+'/'+manaZina.value)
+}
