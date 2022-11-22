@@ -1,41 +1,52 @@
 #try_flask
 
+
 from flask import Flask
 import json
+import datetime
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
 
 @app.route('/')
 def index():
-    return "Hello World!"
+    return 'nothing is here'
 
-@app.route('/sutit/<vards>/<zina')
-def sutit(vards,zina):
-  tagad = datetime.now()
-  laiks = tagad.strftime("%Y/%m/%d, %4:%4:%5")
+@app.route('/hello')
+def hello():
+    return '<h1>Hello, World</h1>'
 
-  print(vards,zina,laiks)
+@app.route('/send/<vards>/<zina>')
+def send(vards,zina):
+    now = datetime.datetime.now()
+    time = now.strftime("%Y/%m/%d, %H:%M:%S")
 
-  rinda = {
-     "zina":zina,
-     "vards":vards,
-     "laiks":laiks
+    # print(vards,zina,time)
 
-  }
+    rinda = {
+        'zina':zina,
+        'vards':vards,
+        'laiks':time
+    }
 
-  with open ("chat.json","w",encoding='utf-8') as f:
-    f.write(json.dumps(rinda,indent=2,ensure_ascii=False))
+    with open('chat.json','r',encoding='utf-8') as fails:
+        vecasZinas = fails.read()
+        vecieJson = json.loads(vecasZinas)
 
-  return 'Ok'
+    vecieJson.append(rinda)
 
+    with open('chat.json','w',encoding='utf-8') as f:
+        json.dump(vecieJson,f,indent=2,ensure_ascii=False)
 
+    return 'ok'
 
-@app.route('/datums')
+@app.route('/date')
 def datums():
-    return "Šodien ir 14.novembris"
+    return (f'<h1>Today is {datetime.datetime.now()}</h1>')
 
-@app.route('/lietotajs/<vards>/<vecums>')
+
+
+@app.route('/user/<vards>/<vecums>')
 def lietotajs(vards,vecums):
     #return f"{vards} un {vecums}"
     dati = {vards:vecums}
@@ -44,5 +55,4 @@ def lietotajs(vards,vecums):
     with open("lietotaji.json","w",encoding="utf-8") as fails:
         json.dump(dati_json,fails,indent=2,ensure_ascii=False)
 
-
-app.run(host='0.0.0.0', port=81)
+app.run(host='0.0.0.0',port=81)
