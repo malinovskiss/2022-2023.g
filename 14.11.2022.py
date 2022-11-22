@@ -33,6 +33,7 @@ def send(vards,zina):
 
     rinda = {
         'zina':zina,
+        
         'vards':vards,
         'laiks':time
     }
