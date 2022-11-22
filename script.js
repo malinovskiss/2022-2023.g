@@ -1,3 +1,5 @@
+#script.js
+
 const API = 'http://127.0.0.1:81'
 
 let myMsg = document.querySelector('.myMsg')
@@ -8,4 +10,10 @@ function sutitZinu(){
     console.log('sutitzinu() darbojas')
     chatMsg.innerHTML += '<br/>' + myMsg.value
     fetch(API+'/send/'+vards.value+'/'+myMsg.value)
+}
+async function ieladetChataZinas(){
+    let datinoServera = await fetch(API = '/lasit')
+    let dati = await datiNoServera.json()
+
+    chataZinas
 }
