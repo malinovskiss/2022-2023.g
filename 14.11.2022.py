@@ -3,10 +3,12 @@
 
 from flask import Flask
 import json
-import datetime
+import datetime import datetime
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"]=False
+CORS(app)
 
 @app.route('/')
 def index():
@@ -16,7 +18,13 @@ def index():
 def hello():
     return '<h1>Hello, World</h1>'
 
-@app.route('/send/<vards>/<zina>')
+@app.route('/lasit')
+def lasit():
+    with open ("chat.json","r",encoding='utf-8') as f:
+        zinas = f.read()
+    return zinas
+
+@app.route('/sutit/<vards>/<zina>')
 def send(vards,zina):
     now = datetime.datetime.now()
     time = now.strftime("%Y/%m/%d, %H:%M:%S")
