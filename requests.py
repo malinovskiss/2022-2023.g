@@ -18,3 +18,11 @@ print(type (item)for item in list(soup.children))
 html = list(soup.children)[2]
 
 print(list(html.children))
+
+body = list(html.children)[3]
+
+print(list(body.children))
+
+div = list(body.children)[1]
+
+print(list(div.children))
